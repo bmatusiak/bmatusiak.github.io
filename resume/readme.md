@@ -67,6 +67,8 @@ WebApp Development IDE
 ### OpenSource Contributions. ###
 GITHUB ACCOUNT:  [https://github.com/bmatusiak](https://github.com/bmatusiak)
 
-
+- A missing Punctuation Mark will break any application.
+- Documentation and testing is key to a true application
+- Java is not JavaScript.
 ### [https://bmatusiak.github.io/resume](https://bmatusiak.github.io/resume)
 
