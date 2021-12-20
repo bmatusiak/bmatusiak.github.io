@@ -54,6 +54,7 @@ WebApp Development IDE
 - C, C++
 - MongoDB
 - SQL Queries 
+- MarkDown
 
 ### Embedded Devices ###
 - Raspberry Pi
@@ -72,3 +73,5 @@ GITHUB ACCOUNT:  [https://github.com/bmatusiak](https://github.com/bmatusiak)
 - Java is not JavaScript.
 ### [https://bmatusiak.github.io/resume](https://bmatusiak.github.io/resume)
 
+
+TO HIGHER ME, POST A ISSUE HERE [https://github.com/bmatusiak/bmatusiak.github.io/issues](https://github.com/bmatusiak/bmatusiak.github.io/issues)
