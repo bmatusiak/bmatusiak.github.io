@@ -10,9 +10,9 @@ __CryptoTrust LLC__
 
 Hardware Encrypted Password USB with Online Cryptographic Software Utilities 
 
-https://onlykey.io/
+[https://onlykey.io/](https://onlykey.io/)
 
-https://apps.crp.to/
+[https://apps.crp.to/](https://apps.crp.to/)
 
 * Bradley manages web applications and an official 3rd Party API to connect software to hardware.
 
@@ -21,7 +21,7 @@ __Cloud9Ide__
 2011 - CURRENT - File Tree Management and Image editor
 WebApp Development IDE
 
-https://c9.io/ 
+[https://c9.io/](https://c9.io/) 
 
 * Bradley manages patching and fixing features, to improve workflow. Offering new ideas for using and building apps into Cloud9.   
 
@@ -65,7 +65,7 @@ https://c9.io/
 	--Bradley Matusiak
   
 ### OpenSource Contributions. ###
-GITHUB ACCOUNT:  https://github.com/bmatusiak
+GITHUB ACCOUNT:  [https://github.com/bmatusiak](https://github.com/bmatusiak)
 
 
 ### [https://bmatusiak.github.io/resume](https://bmatusiak.github.io/resume)
