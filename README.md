@@ -11,3 +11,5 @@ DONATE:
 
 
 [ok-keeweb](https://bmatusiak.github.io/ok-keeweb/)
+
+[node-onlykey-mnemonic](https://github.com/bmatusiak/node-onlykey-mnemonic)
