@@ -12,13 +12,15 @@ Hardware Encrypted Password USB with Online Cryptographic Software Utilities
 
 [https://onlykey.io/](https://onlykey.io/)
 
-[https://apps.crp.to/](https://apps.crp.to/)
+[https://apps.crp.to/](https://apps.crp.to/)   
+
+[https://docs.crp.to/node-onlykey/docs/](https://docs.crp.to/node-onlykey/docs/) 
 
 * Bradley manages web applications and an official 3rd Party API to connect software to hardware.
 
 __Cloud9Ide__
 
-2011 - CURRENT - File Tree Management and Image editor
+2011 - 2017 - File Tree Management and Image editor
 WebApp Development IDE
 
 [https://c9.io/](https://c9.io/) 
@@ -50,6 +52,7 @@ WebApp Development IDE
 
 
 ### Software Languages ###
+- Javascript
 - Shell scripting
 - C, C++
 - MongoDB
