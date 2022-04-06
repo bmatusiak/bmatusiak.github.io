@@ -68,7 +68,7 @@ WebApp Development IDE
 “Every software engineer needs to be open to suggestions. For our open hearts lead the world into creative thinking. Because code is not permanent and is ever evolving.” 
 	--Bradley Matusiak
   
-“All code is bad code until tested. No maintenance no glory.” 
+“All code is bad code until tested. No maintenance, No glory.” 
 	--Bradley Matusiak
   
 ### OpenSource Contributions. ###
