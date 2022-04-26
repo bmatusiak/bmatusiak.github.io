@@ -18,6 +18,15 @@ Hardware Encrypted Password USB with Online Cryptographic Software Utilities
 
 * Bradley manages web applications and an official 3rd Party API to connect software to hardware.
 
+__Independent Projects__
+
+2017 - CURRENT - Independent Javascript Framerwork
+
+Peersocial is a set of tools used to for building fast simple and secure plugin based web3 dapps. 
+
+[https://peersocial.io/](https://peersocial.io/)
+
+
 __Cloud9Ide__
 
 2011 - 2017 - File Tree Management and Image editor
