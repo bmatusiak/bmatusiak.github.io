@@ -65,7 +65,7 @@ Bradley manages to patch and fix older features, to improve workflow. And offeri
 - 2009 - First expierence in Javascript Automation
 - Colaborator for `D2BS` Botting platform (JS)
 - Created a Complete System that took payment on D2JSP.org to complete a series of task, without user intervention
-- Broke D2JSP Rush and Level Services FG Prices in 2017 (price cut at 93$ 5/75)
+- Broke D2JSP Rush and Level Services FG Prices in 2017 (price cut at 93% 5/75)
 
 
 Bradley manages to patch and fix older features, to improve workflow. And offering new ideas for using and building apps into Cloud9.   
