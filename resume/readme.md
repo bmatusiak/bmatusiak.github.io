@@ -45,11 +45,14 @@ Bradley manages web applications and an official 3rd Party API to connect softwa
 
 Started out as a basic Tech to repair consumer hardware and fix software issues, They learned that I had more skills as I re-engineered their point of sale system from an old design years ago to a web-based system, 
 
+[https://www.compdoctors.net/](https://www.compdoctors.net/)
+
 ---
 
 #### __Cloud9Ide__
 
 - 2011 - 2017 * OpenSource Contributor 
+
 Javascript Development IDE - File Tree Management and Image editor
 
 [https://c9.io/](https://c9.io/) 
