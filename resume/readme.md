@@ -58,6 +58,8 @@ Bradley manages to patch and fix older features, to improve workflow. And offeri
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### INDEPENDENT PROJECTS
 - Peersocial.io Web3 Platform
 - Discord Bots that connect to API Services. 
