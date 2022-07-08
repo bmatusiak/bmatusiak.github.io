@@ -9,7 +9,7 @@ With Mr. Matusiak’s extensive experience in software development, DevOps, and 
 
 #### __CryptoTrust LLC__
 
-- 2020 - CURRENT - Main Developer for 3rd Party API
+- 2020 - Main Developer for 3rd Party API
 
 Hardware Encrypted Password USB with Online Cryptographic Software Utilities 
 
@@ -49,10 +49,21 @@ Started out as a basic Tech to repair consumer hardware and fix software issues,
 
 #### __Cloud9Ide__
 
-- 2011 - 2017 - File Tree Management and Image editor
-WebApp Development IDE
+- 2011 - 2017 * OpenSource Contributor 
+Javascript Development IDE - File Tree Management and Image editor
 
 [https://c9.io/](https://c9.io/) 
+
+Bradley manages to patch and fix older features, to improve workflow. And offering new ideas for using and building apps into Cloud9.   
+
+---
+
+#### __Diablo 2 Botting__
+- 2009 - First expierence in Javascript Automation
+- Colaborator for `D2BS` Botting platform (JS)
+- Created a Complete System that took payment on D2JSP.org to complete a series of task, without user intervention
+- Broke D2JSP Rush and Level Services FG Prices in 2017 (price cut at 93$ 5/75)
+
 
 Bradley manages to patch and fix older features, to improve workflow. And offering new ideas for using and building apps into Cloud9.   
 
