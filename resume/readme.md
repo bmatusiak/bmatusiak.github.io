@@ -1,8 +1,11 @@
 # Bradley Matusiak
 ## Software Engineer
 
-With Brad’s extensive experience in software development, DevOps, and information technology services, he is a software engineer and senior IT specialist. His previous experience encompasses a vast spectrum in industries from Culinary Arts to Full Stack Web Development. In addition to his over 15 years of IT experience, he has been actively involved as a software development lead contributor to open source projects.
+With Brad’s extensive experience in software development, DevOps, and information technology services, he is a software engineer and senior IT specialist. His previous experience encompasses a vast spectrum in industries from Culinary Arts to Full Stack Web Development. In addition to his over 15 years of IT experience, he has been actively involved in software development as a lead contributor to open source projects.
 
+When it comes to software development, Brad is someone you can count on to deliver quality results. On top of his extensive experience in the field, he has also been active in contributing to open source projects and building software from scratch. In addition, Brad has the ability to think out of the box and come up with new solutions for a problem that seems unsolvable. 
+
+He loves the challenge of solving problems and seeing the value in his new methods. Brad cannot wait to take on more projects and help other businesses grow.
 
 ### WORK EXPERIENCE
 
