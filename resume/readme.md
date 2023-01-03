@@ -6,6 +6,8 @@ With Mr. Matusiak’s extensive experience in software development, DevOps, and 
 
 ### WORK EXPERIENCE
 
+- Java is not JavaScript.
+
 ---
 
 #### __COMPUTER DISCOUNT CENTER__
@@ -66,14 +68,13 @@ Started out as a basic Tech to repair consumer hardware and fix software issues,
 
 ---
 
-GITHUB ACCOUNT:  [https://github.com/bmatusiak](https://github.com/bmatusiak)
-
-- Java is not JavaScript.
-#### __OpenSource Contributions __
+### OpenSource Contributions
 
 - Gun.eco
 - CryptoTrust LLC - 3rd Party API
 - Cloud9Ide
+
+GITHUB ACCOUNT:  [https://github.com/bmatusiak](https://github.com/bmatusiak)
 
 ---
 
