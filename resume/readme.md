@@ -1,7 +1,7 @@
 # Bradley Matusiak
 ## Software Engineer
 
-With Mr. Matusiak’s extensive experience in software development, DevOps, and information technology services, he is a software engineer and senior IT specialist. His previous experience encompasses a vast spectrum in industries from Culinary Arts to Full Stack Web Development. In addition to his over 15 years of IT experience, he has been actively involved as a software development lead contributor to open source projects.
+With Brad’s extensive experience in software development, DevOps, and information technology services, he is a software engineer and senior IT specialist. His previous experience encompasses a vast spectrum in industries from Culinary Arts to Full Stack Web Development. In addition to his over 15 years of IT experience, he has been actively involved as a software development lead contributor to open source projects.
 
 
 ### WORK EXPERIENCE
@@ -12,9 +12,8 @@ With Mr. Matusiak’s extensive experience in software development, DevOps, and 
 
 #### __COMPUTER DISCOUNT CENTER__
 
-- 2016 — 2020 - Computer Repair & Point of Sale App Developer
+- 2016 — 2020 - Computer Repair and Lead Advisor
 
-Started out as a basic Tech to repair consumer hardware and fix software issues, They learned that I had more skills as I re-engineered their point of sale system from an old design years ago to a web-based system, 
 
 [https://www.compdoctors.net/](https://www.compdoctors.net/)
 
