@@ -1,4 +1,7 @@
 # Bradley Matusiak
+Hello, I am Bradley and i'm looking for a long term job opportunity relationship.
+I have years of experience working on several projects JavaScript. So if you think that this is the perfect match then please contact me.
+
 ## SOFTWARE ENGINEER
 
 With Brad’s extensive experience in software development, DevOps, and information technology services, he is a software engineer and senior IT specialist. His previous experience encompasses a vast spectrum in industries from Culinary Arts to Full Stack Web Development. In addition to his over 15 years of IT experience, he has been actively involved in software development as a lead contributor to open source projects.
