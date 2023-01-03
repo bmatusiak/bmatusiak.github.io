@@ -90,8 +90,10 @@ GITHUB ACCOUNT:  [https://github.com/bmatusiak](https://github.com/bmatusiak)
 
 ### [https://bmatusiak.github.io/resume](https://bmatusiak.github.io/resume)
 
-[Mark Nadal-CEO at ERA](https://github.com/amark)
-Bradley is a talented security minded engineer, I have seen him take initiative on important Open Source work and cares about delivering, executing, and getting things done.
+---
 
+Bradley is a talented security minded engineer, I have seen him take initiative on important Open Source work and cares about delivering, executing, and getting things done.   --- [Mark Nadal-CEO at ERA](https://github.com/amark)
+
+---
 
 TO HIRE ME, POST A ISSUE HERE [https://github.com/bmatusiak/bmatusiak.github.io/issues](https://github.com/bmatusiak/bmatusiak.github.io/issues)
