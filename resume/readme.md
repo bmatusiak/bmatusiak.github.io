@@ -96,4 +96,32 @@ Bradley is a talented security minded engineer, I have seen him take initiative 
 
 ---
 
+### Other Expierences 
+
+BM Tech Services, Saint Augustine FL — Operator
+- 2020 - CURRENT
+- General Technology Services, Repair, Development, Support
+
+
+Computer Doctors, Saint Augustine FL — Repair Tech Labor
+- 2016 - 2020
+- General PC Repair and Mobile Device Repair, Soldering Repair, Linux Systems Management
+
+
+iRepairFast, Ponte Vedra Beach FL — Repair Tech Labor
+- 2013 - 2016
+- Mobile Device Repair, Soldering, Website Management
+
+
+P2P Computers LLC, Saint Augustine — Operator
+- 2011 -  2013
+- Internet Technologies, NodeJS Development
+
+
+PIP Printing, Saint Augustine — Labor
+- 2009 - 2011
+- Binding Books, Folding Paper, Press Helper, Cut Paper
+
+---
+
 TO HIRE ME, POST A ISSUE HERE [https://github.com/bmatusiak/bmatusiak.github.io/issues](https://github.com/bmatusiak/bmatusiak.github.io/issues)
