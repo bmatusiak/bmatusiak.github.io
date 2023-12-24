@@ -11,7 +11,7 @@ npx react-native@0.70.6 init AwesomeProject --version 0.70.6
 # step2: install packages
 ```
 npm install text-encoding buffer   #for gun/sea deps
-npm install github:amark/gun github:bmatusiak/gun-unbuild github:bmatusiak/gun-rebuild-sea   #for gun/sea
+npm install github:bmatusiak/gun-unbuild github:bmatusiak/gun-rebuild-sea github:bmatusiak/gun#localStorage-fix   #for gun/sea
 npm install react-native-webview react-native-webview-crypto react-native-get-random-values  #for crypto
 npm install @react-native-async-storage/async-storage   #for gun storage
 ```
