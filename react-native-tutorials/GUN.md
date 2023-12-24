@@ -18,10 +18,11 @@ npm install @react-native-async-storage/async-storage   #for gun storage
 
 # step3: loading gun (App.js)
 ```js
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import PolyfillCrypto from 'react-native-webview-crypto';
 import 'react-native-get-random-values';
-import Gun from 'gun/src';
+import 'gun/lib/mobile';
+import Gun from 'gun';
 import 'gun/sea';
 import 'gun/lib/radix.js';
 import 'gun/lib/radisk.js';
@@ -37,6 +38,11 @@ export default function App() {
       store: asyncStore({AsyncStorage}),
     });
   }
+  useEffect(function () {
+    (async function () {
+      gun.current.user().login(await Gun.SEA.pair());
+    })();
+  }, []);
   return (
     <>
       <PolyfillCrypto />
