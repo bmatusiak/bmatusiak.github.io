@@ -40,7 +40,10 @@ export default function App() {
   }
   useEffect(function () {
     (async function () {
-      gun.current.user().login(await Gun.SEA.pair());
+      var pair = await Gun.SEA.pair();
+      gun.current.user().auth(pair, function () {
+        console.log(gun.current.user().is);
+      });
     })();
   }, []);
   return (
