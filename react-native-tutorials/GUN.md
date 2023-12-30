@@ -1,3 +1,10 @@
+# pre info:
+  this is tested on windows host , building to android
+
+# prereqs:
+  node_version 16
+  react-native dev env = https://reactnative.dev/docs/0.70/environment-setup
+
 # step1: react-native bare tempalte
 
 ```
@@ -11,7 +18,7 @@ npx react-native@0.70.6 init AwesomeProject --version 0.70.6
 # step2: install packages
 ```
 npm install text-encoding buffer   #for gun/sea deps
-npm install github:bmatusiak/gun-unbuild github:bmatusiak/gun-rebuild-sea github:bmatusiak/gun#localStorage-fix   #for gun/sea
+npm install github:bmatusiak/gun-rebuild github:bmatusiak/gun-rebuild-sea github:amark/gun   #for gun/sea
 npm install react-native-webview react-native-webview-crypto react-native-get-random-values  #for crypto
 npm install @react-native-async-storage/async-storage   #for gun storage
 ```
