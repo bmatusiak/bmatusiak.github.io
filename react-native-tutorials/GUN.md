@@ -37,18 +37,20 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import asyncStore from 'gun/lib/ras.js';
 
 export default function App() {
-  var gun = useRef(null);
-  if (gun.current == null) {
-    gun.current = Gun({
-      peers: 'https://gun:8765/gun',
-      store: asyncStore({AsyncStorage}),
-    });
-  }
+  var gun = (gun_ref => {
+    if (gun_ref.current == null) {
+      gun_ref.current = Gun({
+        peers: 'https://gun:8765/gun',
+        store: asyncStore({AsyncStorage}),
+      });
+    }
+    return gun_ref.current;
+  })(useRef(null));
   useEffect(function () {
     (async function () {
       var pair = await Gun.SEA.pair();
-      gun.current.user().auth(pair, function () {
-        console.log(gun.current.user().is);
+      gun.user().auth(pair, function () {
+        console.log(gun.user().is);
       });
     })();
   }, []);
