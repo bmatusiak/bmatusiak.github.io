@@ -1,16 +1,15 @@
-# pre info:
-  this is tested on windows host , building to android
+_this is tested on windows host , building for android_
 
 # prereqs:
-  node_version 16
-  react-native dev env = https://reactnative.dev/docs/0.70/environment-setup
+  * node_version 16
+  * react-native dev env = https://reactnative.dev/docs/0.70/environment-setup
 
 # step1: react-native bare tempalte
 
 ```
 npx react-native init AwesomeProject
 ```
-or speific version (see versions set in 2 spots)
+or speific version (see versions set in 2 spots) *using prereqs
 ```
 npx react-native@0.70.6 init AwesomeProject --version 0.70.6
 ```
