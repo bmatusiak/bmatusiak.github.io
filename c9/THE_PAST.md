@@ -1,4 +1,4 @@
-A long time ago (2024)  i introducted a image editor into cloud9
+A long time ago (2013)  i introducted a image editor into cloud9
 
 sell time has passed, and amazon picked that as a IDE for online development.
 
