@@ -1,6 +1,6 @@
 <style> .markdown-body{ font-size:12px }</style>
 
-# Bradley Matusiak
+<!-- # Bradley Matusiak -->
 Hello, I am Bradley and i'm looking for a long term job opportunity relationship.
 I have years of experience working on several projects with JavaScript. So if you think that this is the perfect match then please contact me.
 
