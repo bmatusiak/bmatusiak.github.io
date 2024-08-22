@@ -10,7 +10,7 @@ When it comes to software development, Brad is someone you can count on to deliv
 
 He loves the challenge of solving problems and seeing the value in his new methods. Brad cannot wait to take on more projects and help other businesses grow.
 
-### SELLING POINTS
+### TOP Talking POINTS
 
 - Java is not JavaScript.
 - Designed to work with NodeJS, JQuery, HTML5/CSS and Bootstrap
@@ -87,7 +87,7 @@ Bradley is a talented security minded engineer, I have seen him take initiative 
 
 ---
 
-### Other Expierences 
+### Recent Expierences 
 
 Avatar Inc, USA — Developer
 - 2023 - 2024
