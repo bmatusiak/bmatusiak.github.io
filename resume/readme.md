@@ -17,16 +17,7 @@ He loves the challenge of solving problems and seeing the value in his new metho
 - Javascript along with JQuery and HTML5/CSS help in designing modern websites
 - REST API allows for easy integration into any application
 - Bulletproof assurance for data security
-
-
----
-
-#### __COMPUTER DISCOUNT CENTER__
-
-- 2016 — 2020 - Computer Repair and Lead Advisor
-
-
-[https://www.compdoctors.net/](https://www.compdoctors.net/)
+- NodeJS Native Modules
 
 ---
 
@@ -98,10 +89,15 @@ Bradley is a talented security minded engineer, I have seen him take initiative 
 
 ### Other Expierences 
 
-BM Tech Services, Saint Augustine FL — Operator
-- 2020 - CURRENT
-- General Technology Services, Repair, Development, Support
+Avatar Inc, USA — Developer
+- 2023 - 2024
+<!-- - React -->
 
+Uber Deliveries & Taxi Driving For Research @ 2023
+
+BM Tech Services, Saint Augustine FL — Operator
+- 2020 - 2022
+- General Technology Services, Repair, Development, Support
 
 Computer Doctors, Saint Augustine FL — Repair Tech Labor
 - 2016 - 2020
