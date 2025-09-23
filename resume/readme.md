@@ -6,6 +6,7 @@ bmatusiak@gmail.com | [GitHub Profile](https://github.com/bmatusiak)
 
 ### **Summary**
 I am a highly motivated individual with a proven ability to bridge the gap between technical skills and practical application. My experience in computer repair laid the groundwork for my transition into software development, where I now specialize in live data analytics and automation. I am adept at using data to build efficient, automated systems that drive real-world improvements. I am confident that my combination of technical expertise and unique, hands-on experience will be a significant asset to your team.
+
 Innovative Full-Stack Developer with extensive experience across JavaScript, Node.js, and open-source development. Adept at creating scalable architectures and improving system efficiency, contributing to notable projects such as **Welder** and **GUN Ecosystem**. A proactive problem-solver with a deep understanding of both frontend and backend frameworks, Bradley has made impactful contributions to the tech community through collaboration and open-source initiatives.
 
 ---
