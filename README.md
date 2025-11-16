@@ -8,7 +8,9 @@ Github Profile : [https://github.com/bmatusiak/](https://github.com/bmatusiak/)
 
 [node-onlykey-mnemonic](https://github.com/bmatusiak/node-onlykey-mnemonic)
 
-affiliate
-___
+----
 
-[server hosting 30$year](https://clients.desivps.com/aff.php?a=add&pid=112&aff=329) perfect for gun!
+__affiliate links that support me__
+
+
+[server hosting - 3GB KVM - 30$year](https://clients.desivps.com/aff.php?a=add&pid=112&aff=329) perfect for gun!
