@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Weekly Countdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom progress bar styles for a smoother look */
+        .progress-bar-container {
+            border-radius: 9999px; /* Fully rounded */
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-fill {
+            transition: width 0.5s ease-out;
+            background-image: linear-gradient(to right, #D97757, #E8A18C); /* Anthropic Coral to Light Peach */
+        }
+        
+        /* Subtle glow for the countdown */
+        .countdown-text {
+            text-shadow: 0 1px 6px rgba(217, 119, 87, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 bg-stone-950 text-stone-200">
+
+    <div class="bg-stone-900 rounded-2xl shadow-2xl w-full max-w-md p-6 sm:p-8 space-y-6 border border-stone-800">
+        
+        <!-- Header -->
+        <div class="text-center">
+            <h1 class="text-2xl font-bold text-[#F3F1EC]">Claude Weekly Countdown</h1>
+            <p class="text-sm text-stone-400 mt-1">Tracking a 7-day cycle</p>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="space-y-2">
+            <div class="flex justify-between items-end mb-1">
+                <span class="text-sm font-medium text-stone-400">Progress</span>
+                <span id="percentageDisplay" class="text-lg font-bold text-[#D97757]">0%</span>
+            </div>
+            
+            <div class="progress-bar-container h-6 bg-stone-800 w-full relative">
+                <div id="progressBar" class="progress-fill h-full w-0 flex items-center justify-end pr-2">
+                     <!-- Optional inner text if bar is wide enough -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Countdown Display -->
+        <div class="bg-stone-800/80 rounded-xl p-4 border border-stone-700 text-center shadow-inner">
+            <p class="text-xs text-stone-400 font-semibold uppercase tracking-wider mb-2">Time Remaining</p>
+            <div id="countdownDisplay" class="countdown-text text-3xl sm:text-4xl font-bold text-[#F3F1EC] tracking-tight font-mono">
+                --:--:--:--
+            </div>
+            <p id="targetLabel" class="text-sm text-stone-400 mt-2">Target: Setting...</p>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="pt-4 border-t border-stone-800">
+            <button id="toggleSettingsBtn" class="text-sm text-[#D97757] hover:text-[#E8A18C] font-medium flex items-center justify-center w-full focus:outline-none transition-colors">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Configure Target Time
+            </button>
+            
+            <div id="settingsPanel" class="hidden mt-4 space-y-4 bg-stone-800/90 p-4 rounded-lg border border-stone-700">
+                <div>
+                    <label for="targetDay" class="block text-sm font-medium text-stone-300 mb-1">Target Day</label>
+                    <select id="targetDay" class="w-full bg-stone-900 text-stone-100 rounded-md border-stone-700 shadow-sm focus:border-[#D97757] focus:ring-[#D97757] focus:ring-1 outline-none p-2 border">
+                        <option value="0">Sunday</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5" selected>Friday</option>
+                        <option value="6">Saturday</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="targetTime" class="block text-sm font-medium text-stone-300 mb-1">Target Time</label>
+                    <input type="time" id="targetTime" value="21:00" class="w-full bg-stone-900 text-stone-100 rounded-md border-stone-700 shadow-sm focus:border-[#D97757] focus:ring-[#D97757] focus:ring-1 outline-none p-2 border" style="color-scheme: dark;">
+                </div>
+                
+                <button id="saveSettingsBtn" class="w-full bg-[#D97757] text-[#F3F1EC] py-2 px-4 rounded-md hover:bg-[#C26547] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-stone-900 focus:ring-[#D97757] font-medium transition-colors shadow-lg">
+                    Save Configuration
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- State ---
+        // Default: Friday (5) at 21:00 (9 PM)
+        let config = {
+            targetDay: 5, // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
+            targetHour: 21,
+            targetMinute: 0
+        };
+
+        // DOM Elements
+        const progressBar = document.getElementById('progressBar');
+        const percentageDisplay = document.getElementById('percentageDisplay');
+        const countdownDisplay = document.getElementById('countdownDisplay');
+        const targetLabel = document.getElementById('targetLabel');
+        const settingsPanel = document.getElementById('settingsPanel');
+        const toggleSettingsBtn = document.getElementById('toggleSettingsBtn');
+        const targetDaySelect = document.getElementById('targetDay');
+        const targetTimeInput = document.getElementById('targetTime');
+        const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+
+        let intervalId;
+
+        // --- Core Logic ---
+
+        function getNextTargetDate(now, targetDayOfWeek, targetHour, targetMinute) {
+            let targetDate = new Date(now.getTime());
+            
+            // Set the time for today first
+            targetDate.setHours(targetHour, targetMinute, 0, 0);
+
+            let currentDayOfWeek = now.getDay();
+            let daysUntilTarget = targetDayOfWeek - currentDayOfWeek;
+
+            // If the target day is earlier in the week, or if it's today but the time has passed,
+            // we need to look to next week.
+            if (daysUntilTarget < 0 || (daysUntilTarget === 0 && now > targetDate)) {
+                daysUntilTarget += 7;
+            }
+            
+            // Special case: If we are exactly at the target time, it should be 100% (or 0% of next week).
+            // We'll treat it as targeting next week to start the cycle over.
+            if(daysUntilTarget === 0 && now.getTime() === targetDate.getTime()) {
+                daysUntilTarget += 7;
+            }
+
+            targetDate.setDate(targetDate.getDate() + daysUntilTarget);
+            return targetDate;
+        }
+
+        function updateProgress() {
+            const now = new Date();
+            
+            // 1. Determine the exact next target date/time
+            const nextTarget = getNextTargetDate(now, config.targetDay, config.targetHour, config.targetMinute);
+            
+            // 2. Determine the start date (exactly 7 days before the target)
+            const startDate = new Date(nextTarget.getTime());
+            startDate.setDate(startDate.getDate() - 7);
+
+            // 3. Calculate total duration and elapsed duration in milliseconds
+            const totalDuration = nextTarget.getTime() - startDate.getTime(); // Should always be 7 days in ms
+            const elapsed = now.getTime() - startDate.getTime();
+
+            // 4. Calculate Percentage
+            let percentage = (elapsed / totalDuration) * 100;
+            
+            // Constrain percentage between 0 and 100 just in case
+            percentage = Math.max(0, Math.min(100, percentage));
+
+            // Update Progress Bar UI
+            progressBar.style.width = `${percentage}%`;
+            percentageDisplay.textContent = `${percentage.toFixed(1)}%`;
+
+            // 5. Calculate Countdown
+            const remainingMs = nextTarget.getTime() - now.getTime();
+            
+            // Handle case where we might just hit exactly 0
+            if (remainingMs <= 0) {
+                 countdownDisplay.textContent = "00:00:00:00";
+                 // It will naturally reset on the next tick because getNextTargetDate will find next week
+                 return;
+            }
+
+            const days = Math.floor(remainingMs / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingMs % (1000 * 60)) / 1000);
+
+            // Format with leading zeros
+            const pad = (num) => String(num).padStart(2, '0');
+            
+            countdownDisplay.innerHTML = `
+                <div class="flex justify-center gap-2 sm:gap-4 text-center">
+                    <div class="flex flex-col"><span class="text-2xl sm:text-4xl text-[#F3F1EC]">${pad(days)}</span><span class="text-[10px] sm:text-xs text-stone-400 uppercase tracking-wide">Days</span></div>
+                    <span class="text-2xl sm:text-4xl opacity-50 text-stone-500">:</span>
+                    <div class="flex flex-col"><span class="text-2xl sm:text-4xl text-[#F3F1EC]">${pad(hours)}</span><span class="text-[10px] sm:text-xs text-stone-400 uppercase tracking-wide">Hrs</span></div>
+                    <span class="text-2xl sm:text-4xl opacity-50 text-stone-500">:</span>
+                    <div class="flex flex-col"><span class="text-2xl sm:text-4xl text-[#F3F1EC]">${pad(minutes)}</span><span class="text-[10px] sm:text-xs text-stone-400 uppercase tracking-wide">Min</span></div>
+                    <span class="text-2xl sm:text-4xl opacity-50 text-stone-500">:</span>
+                    <div class="flex flex-col"><span class="text-2xl sm:text-4xl text-[#F3F1EC]">${pad(seconds)}</span><span class="text-[10px] sm:text-xs text-stone-400 uppercase tracking-wide">Sec</span></div>
+                </div>
+            `;
+        }
+
+        function loadConfig() {
+            const savedConfig = localStorage.getItem('7DayProgressConfig');
+            if (savedConfig) {
+                config = JSON.parse(savedConfig);
+                
+                // Update form inputs to match saved config
+                targetDaySelect.value = config.targetDay;
+                
+                // Format time for input (HH:MM)
+                const h = String(config.targetHour).padStart(2, '0');
+                const m = String(config.targetMinute).padStart(2, '0');
+                targetTimeInput.value = `${h}:${m}`;
+            }
+            updateTargetLabel();
+        }
+
+        function saveConfig() {
+            const dayStr = targetDaySelect.value;
+            const timeStr = targetTimeInput.value; // Format: "HH:MM"
+            
+            if (timeStr) {
+                const [hours, minutes] = timeStr.split(':');
+                config.targetDay = parseInt(dayStr, 10);
+                config.targetHour = parseInt(hours, 10);
+                config.targetMinute = parseInt(minutes, 10);
+                
+                localStorage.setItem('7DayProgressConfig', JSON.stringify(config));
+                
+                updateTargetLabel();
+                updateProgress(); // Force update immediately
+                
+                // Hide panel
+                settingsPanel.classList.add('hidden');
+            }
+        }
+
+        function updateTargetLabel() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = days[config.targetDay];
+            
+            // Format time nicely (12hr format)
+            let h = config.targetHour;
+            const m = String(config.targetMinute).padStart(2, '0');
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12;
+            h = h ? h : 12; // the hour '0' should be '12'
+            
+            targetLabel.textContent = `Target: Every ${dayName} at ${h}:${m} ${ampm}`;
+        }
+
+        // --- Event Listeners ---
+        toggleSettingsBtn.addEventListener('click', () => {
+            settingsPanel.classList.toggle('hidden');
+        });
+
+        saveSettingsBtn.addEventListener('click', saveConfig);
+
+        // --- Initialization ---
+        loadConfig();
+        updateProgress(); // Initial call
+        intervalId = setInterval(updateProgress, 1000); // Update every second
+
+    </script>
+</body>
+</html>
