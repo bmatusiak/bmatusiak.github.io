@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File Hasher</title>
+<style>
+  body { font-family: sans-serif; margin: 20px; background: #fff; color: #222; }
+  #drop { border: 2px dashed #999; padding: 30px; text-align: center; color: #666; cursor: pointer; }
+  body.over #drop { border-color: #06c; background: #eef5ff; color: #06c; }
+  table { border-collapse: collapse; width: 100%; margin-top: 16px; font-size: 14px; }
+  th, td { border-bottom: 1px solid #ddd; padding: 6px; text-align: left; vertical-align: top; }
+  .hash { font-family: monospace; word-break: break-all; position: relative; cursor: default; }
+  .hash .all { display: none; position: absolute; left: 0; top: 100%; z-index: 10; background: #fff;
+               border: 1px solid #999; padding: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.2); width: 100%; min-width: 300px; }
+  .hash:hover .all { display: block; }
+  .all div { margin: 2px 0; cursor: pointer; }
+  .all div:hover { background: #eef5ff; }
+  .all b { display: inline-block; width: 60px; }
+  button { cursor: pointer; }
+  #status { margin-top: 8px; color: #666; min-height: 1em; }
+</style>
+</head>
+<body>
+<h2>File Hasher</h2>
+<div id="drop">Drop files anywhere in the window, or click to choose</div>
+<input type="file" id="pick" multiple hidden>
+<div id="status"></div>
+<p><button id="clear">Clear list</button> <small>Hover over a hash to see the others. Click any hash to copy it.</small></p>
+<table>
+  <thead><tr><th>File</th><th>Size</th><th>SHA-256</th><th>Added</th><th></th></tr></thead>
+  <tbody id="list"></tbody>
+</table>
+
+<script>
+const KEY = 'fileHashes';
+const ALGOS = ['MD5', 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'];
+let items = [];
+try { items = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
+
+function save() { try { localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) {} }
+
+function hex(buf) {
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Small MD5 (Web Crypto doesn't provide it)
+function md5(bytes) {
+  const K = new Uint32Array(64), S = [7,12,17,22,5,9,14,20,4,11,16,23,6,10,15,21];
+  for (let i = 0; i < 64; i++) K[i] = Math.floor(Math.abs(Math.sin(i + 1)) * 2 ** 32);
+  const len = bytes.length, n = (((len + 8) >>> 6) + 1) * 16;
+  const w = new Uint32Array(n), wb = new Uint8Array(w.buffer);
+  wb.set(bytes); wb[len] = 0x80;
+  w[n - 2] = (len * 8) >>> 0; w[n - 1] = Math.floor(len / 0x20000000);
+  let a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
+  for (let j = 0; j < n; j += 16) {
+    let A = a0, B = b0, C = c0, D = d0;
+    for (let i = 0; i < 64; i++) {
+      let F, g;
+      if (i < 16)      { F = (B & C) | (~B & D); g = i; }
+      else if (i < 32) { F = (D & B) | (~D & C); g = (5 * i + 1) % 16; }
+      else if (i < 48) { F = B ^ C ^ D;          g = (3 * i + 5) % 16; }
+      else             { F = C ^ (B | ~D);       g = (7 * i) % 16; }
+      const s = S[(i >> 4) * 4 + (i % 4)];
+      F = (F + A + K[i] + w[j + g]) | 0;
+      A = D; D = C; C = B;
+      B = (B + ((F << s) | (F >>> (32 - s)))) | 0;
+    }
+    a0 = (a0 + A) | 0; b0 = (b0 + B) | 0; c0 = (c0 + C) | 0; d0 = (d0 + D) | 0;
+  }
+  return hex(new Uint32Array([a0, b0, c0, d0]).buffer);
+}
+
+async function hashFile(file) {
+  const buf = await file.arrayBuffer();
+  const h = { 'MD5': md5(new Uint8Array(buf)) };
+  for (const a of ALGOS.slice(1)) h[a] = hex(await crypto.subtle.digest(a, buf));
+  return h;
+}
+
+function size(n) {
+  const u = ['B', 'KB', 'MB', 'GB']; let i = 0;
+  while (n >= 1024 && i < u.length - 1) { n /= 1024; i++; }
+  return (i ? n.toFixed(1) : n) + ' ' + u[i];
+}
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function render() {
+  document.getElementById('list').innerHTML = items.map((it, i) => `
+    <tr>
+      <td>${esc(it.name)}</td>
+      <td>${size(it.size)}</td>
+      <td class="hash"><span data-copy="${it.hashes['SHA-256']}">${it.hashes['SHA-256']}</span>
+        <div class="all">${ALGOS.map(a => `<div data-copy="${it.hashes[a]}"><b>${a}</b>${it.hashes[a]}</div>`).join('')}</div>
+      </td>
+      <td>${new Date(it.added).toLocaleString()}</td>
+      <td><button data-del="${i}">x</button></td>
+    </tr>`).join('');
+}
+
+async function handle(files) {
+  const status = document.getElementById('status');
+  for (const f of files) {
+    status.textContent = 'Hashing ' + f.name + '...';
+    try {
+      items.unshift({ name: f.name, size: f.size, added: Date.now(), hashes: await hashFile(f) });
+      save(); render();
+    } catch (e) {
+      alert('Failed to hash ' + f.name + ': ' + e.message);
+    }
+  }
+  status.textContent = '';
+}
+
+// Drag & drop on whole window
+addEventListener('dragover', e => { e.preventDefault(); document.body.classList.add('over'); });
+addEventListener('dragleave', e => { if (!e.relatedTarget) document.body.classList.remove('over'); });
+addEventListener('drop', e => {
+  e.preventDefault(); document.body.classList.remove('over');
+  handle([...e.dataTransfer.files]);
+});
+
+const pick = document.getElementById('pick');
+document.getElementById('drop').onclick = () => pick.click();
+pick.onchange = () => { handle([...pick.files]); pick.value = ''; };
+
+document.getElementById('clear').onclick = () => {
+  if (confirm('Clear all saved hashes?')) { items = []; save(); render(); }
+};
+
+document.getElementById('list').onclick = e => {
+  const del = e.target.closest('[data-del]');
+  if (del) { items.splice(+del.dataset.del, 1); save(); render(); return; }
+  const c = e.target.closest('[data-copy]');
+  if (c) {
+    navigator.clipboard.writeText(c.dataset.copy).then(() => {
+      document.getElementById('status').textContent = 'Copied: ' + c.dataset.copy;
+    });
+  }
+};
+
+render();
+</script>
+</body>
+</html>
